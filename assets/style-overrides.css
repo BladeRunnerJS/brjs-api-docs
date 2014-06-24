@@ -1,0 +1,31 @@
+body {
+	background-image: url(top-right-branding.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+#caplinlogo > a {
+	background: url("caplin-logo.png") no-repeat;
+	display:block;
+	width:211px;
+	height:46px;
+}
+.divider .divider-image {
+	position: relative;
+	top: -9px;
+	background:url("divider-icon.png") no-repeat;
+	display:block;
+	height:15px;
+	width:37px;
+	margin: 0 auto;
+}
+
+
+.content-wrapper {
+	max-width:1000px;
+	margin:20px auto;
+}
+
+h1 {
+	text-align:center;
+}
