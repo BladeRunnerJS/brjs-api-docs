@@ -28,10 +28,10 @@ $(function() {
 
 	function getVersionListItem(version) {
 		var jsLink = getJsLinkForVersion(version);
-		var jsLinkText = '<a href="'+jsLink+'">JavaScript API Documentation</a>';
+		var jsLinkListItem = '<li><a href="'+jsLink+'">JavaScript API Documentation</a></li>';
 		var javaLink = getJavaLinkForVersion(version);
-		var javaLinkText = '<a href="'+javaLink+'">Java Model API Documentation</a>';
-		return '<li class="version version_'+version+'"><b>'+version+':</b> '+jsLinkText+', '+javaLinkText+'</li>';
+		var javaLinkListItem = '<li><a href="'+javaLink+'">Java Model API Documentation</a></li>';
+		return '<li class="version version_'+version+'"><b>'+version+':</b> <ul>'+jsLinkListItem+javaLinkListItem+'<ul></li>';
 	}
 
 	function getJsLinkForVersion(version) {
