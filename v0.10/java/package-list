@@ -2,7 +2,6 @@ org.bladerunnerjs.aliasing
 org.bladerunnerjs.aliasing.aliasdefinitions
 org.bladerunnerjs.aliasing.aliases
 org.bladerunnerjs.appserver
-org.bladerunnerjs.console
 org.bladerunnerjs.logging
 org.bladerunnerjs.memoization
 org.bladerunnerjs.model
