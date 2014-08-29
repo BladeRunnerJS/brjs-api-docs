@@ -1,0 +1,42 @@
+#!/bin/sh
+
+set -e
+pushd $(dirname $0) >/dev/null
+
+pushd ../brjs/brjs-sdk >/dev/null
+MAJOR_VERSION=`git describe --abbrev=0`
+FULL_VERSION=`git describe`
+
+echo ""
+echo "generating new docs for $MAJOR_VERSION version..."
+echo ""
+
+../gradlew clean createSdkJsDocs
+
+popd >/dev/null
+
+rm -rf $MAJOR_VERSION
+mkdir $MAJOR_VERSION
+cp -r ../brjs/brjs-sdk/workspace/sdk/docs/* $MAJOR_VERSION
+rm latest
+ln -s $MAJOR_VERSION latest
+
+echo ""
+echo "docs generated, performing commit..."
+echo ""
+
+git add -A .
+git reset $0
+git commit -m "autocommit of apidocs for BRJS $FULL_VERSION"
+
+git --no-pager log --name-status HEAD^..HEAD | head -n 20
+echo ...
+
+echo ""
+echo "docs committed, YOU MUST NOW MANUALLY VERIFY AND git push"
+echo "starting webserver on http://localhost:8000 which can be used to verify docs"
+echo ""
+
+python -m SimpleHTTPServer 8000
+
+popd >/dev/null
